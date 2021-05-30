@@ -19,7 +19,7 @@ string(REGEX REPLACE ${${MY_PROJECT_NAME}_VERSION_REGEX} "\\1" ${MY_PROJECT_NAME
 
 # Set project info in the top-level CMake file
 project(${MY_PROJECT_NAME} VERSION ${${MY_PROJECT_NAME}_VERSION_STRING}
-                      DESCRIPTION "C++17 + CMake"
+                      DESCRIPTION "C++17 + Catch2 + CMake"
                       HOMEPAGE_URL "https://github.com/engrvivs/snakes-ladder"
                       LANGUAGES CXX)
 
@@ -27,6 +27,8 @@ project(${MY_PROJECT_NAME} VERSION ${${MY_PROJECT_NAME}_VERSION_STRING}
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     message(STATUS "CMake ${CMAKE_VERSION}")
     
+    include(CTest)
+
     # IMP: Do NOT set them for Libraries
     # Specify the required C++ standard, globally, with NO extensions (like, gnu++17)
     if(NOT DEFINED CMAKE_CXX_STANDARD)
@@ -48,3 +50,9 @@ add_subdirectory(src)
 add_subdirectory(app)
 
 add_executable(${CMAKE_PROJECT_NAME} $<TARGET_OBJECTS:board> $<TARGET_OBJECTS:main>)
+#target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC )
+
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTING)
+    add_subdirectory(test)
+    add_executable(test_${CMAKE_PROJECT_NAME} $<TARGET_OBJECTS:test_main> $<TARGET_OBJECTS:test_board> $<TARGET_OBJECTS:board>)
+endif()
