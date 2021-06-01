@@ -18,6 +18,8 @@ Develop Status: [![Lines Of Code](https://tokei.rs/b1/github/XAMPPRocky/tokei?ca
 - [Henry Schreiner, An Introduction to Modern CMake (3.4+)](https://cliutils.gitlab.io/modern-cmake/)
 - [Catch2/docs, "Why do my tests take so long to compile?"](https://github.com/catchorg/Catch2/blob/devel/docs/slow-compiles.md#short-answer)
 - [C++ Weekly With Jason Turner - Ep 79 - Travis CI](https://youtu.be/3ulKzD2cmSw)
+- [CMake Catch2 integration, "Automatic test registration"](https://github.com/catchorg/Catch2/blob/devel/docs/cmake-integration.md#automatic-test-registration)
+  - [Catch2 GitHub Issue, "CMake target through FetchContent"](https://github.com/catchorg/Catch2/issues/2103)
 
 ### Badges
 
