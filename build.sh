@@ -10,6 +10,8 @@ CXX=g++ cmake -S . -B buildMake -G"Unix Makefiles" -DBUILD_TESTING=ON
 # cmake --build buildMake -j 4 -v 2> make.out
 cmake --build buildMake -j 4 -v
 
-# check 
+# check
 ./buildMake/test_snakes-ladders
 ./buildMake/snakes-ladders
+
+cd buildMake; ctest . ; cd ..

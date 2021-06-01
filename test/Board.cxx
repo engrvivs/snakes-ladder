@@ -1,4 +1,4 @@
-#include "catch.hpp"
+#include <catch2/catch.hpp>
 
 #include "Board.hpp"
 
@@ -7,7 +7,7 @@ TEST_CASE(
     "[Board]") {
   Board board;
   REQUIRE(1 == board.landOn(1).target);
-  REQUIRE(38 == board.landOn(38).target);
+  REQUIRE(138 == board.landOn(38).target);
   REQUIRE(26 == board.landOn(26).target);
 }
 

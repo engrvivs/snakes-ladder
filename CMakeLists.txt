@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.14)
 
 if(${CMAKE_VERSION} VERSION_LESS 3.16)
     cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
@@ -28,6 +28,7 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     message(STATUS "CMake ${CMAKE_VERSION}")
     
     include(CTest)
+    include(FetchContent)
 
     # IMP: Do NOT set them for Libraries
     # Specify the required C++ standard, globally, with NO extensions (like, gnu++17)
@@ -50,9 +51,7 @@ add_subdirectory(src)
 add_subdirectory(app)
 
 add_executable(${CMAKE_PROJECT_NAME} $<TARGET_OBJECTS:board> $<TARGET_OBJECTS:main>)
-#target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC )
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTING)
     add_subdirectory(test)
-    add_executable(test_${CMAKE_PROJECT_NAME} $<TARGET_OBJECTS:test_main> $<TARGET_OBJECTS:test_board> $<TARGET_OBJECTS:board>)
 endif()
