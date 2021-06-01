@@ -15,3 +15,4 @@
 - [Phil Nash, "Test Driven C++", CppCon, 2020](https://www.youtube.com/watch?v=N2gTxeIHMP0)
 - [Henry Schreiner, An Introduction to Modern CMake (3.4+)](https://cliutils.gitlab.io/modern-cmake/)
 - [Catch2/docs, "Why do my tests take so long to compile?"](https://github.com/catchorg/Catch2/blob/devel/docs/slow-compiles.md#short-answer)
+- [C++ Weekly With Jason Turner - Ep 79 - Travis CI](https://youtu.be/3ulKzD2cmSw)

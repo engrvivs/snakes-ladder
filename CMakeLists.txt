@@ -19,7 +19,7 @@ string(REGEX REPLACE ${${MY_PROJECT_NAME}_VERSION_REGEX} "\\1" ${MY_PROJECT_NAME
 
 # Set project info in the top-level CMake file
 project(${MY_PROJECT_NAME} VERSION ${${MY_PROJECT_NAME}_VERSION_STRING}
-                      DESCRIPTION "C++17 + Catch2 + CMake"
+                      DESCRIPTION "C++17 + Catch2 + CMake + Travis CI"
                       HOMEPAGE_URL "https://github.com/engrvivs/snakes-ladder"
                       LANGUAGES CXX)
 
