@@ -1,3 +1,6 @@
 set(TARGET_BOARD "board")
 add_library(${TARGET_BOARD} OBJECT Board.cxx)
 target_include_directories(${TARGET_BOARD} PRIVATE ${PROJECT_SOURCE_DIR}/include)
+if(ENABLE_COVERAGE)
+    target_compile_options(${TARGET_BOARD} BEFORE PRIVATE --coverage PRIVATE -O0)
+endif()

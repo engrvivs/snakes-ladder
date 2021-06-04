@@ -19,16 +19,18 @@ string(REGEX REPLACE ${${MY_PROJECT_NAME}_VERSION_REGEX} "\\1" ${MY_PROJECT_NAME
 
 # Set project info in the top-level CMake file
 project(${MY_PROJECT_NAME} VERSION ${${MY_PROJECT_NAME}_VERSION_STRING}
-                      DESCRIPTION "C++17 + Catch2 + CMake + Travis CI"
+                      DESCRIPTION "Modern C++ + Catch2 + CMake + Travis CI"
                       HOMEPAGE_URL "https://github.com/engrvivs/snakes-ladder"
                       LANGUAGES CXX)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+option(BUILD_TESTING "Build only the test executable" OFF)
+option(ENABLE_COVERAGE "Collect code coverage from test library" OFF)
 
 # Print the version number of CMake, if this is the main project
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     message(STATUS "CMake ${CMAKE_VERSION}")
-    
-    include(CTest)
-    include(FetchContent)
 
     # IMP: Do NOT set them for Libraries
     # Specify the required C++ standard, globally, with NO extensions (like, gnu++17)
@@ -45,13 +47,14 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     endif()
 endif()
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
 add_subdirectory(src)
-add_subdirectory(app)
-
-add_executable(${CMAKE_PROJECT_NAME} $<TARGET_OBJECTS:board> $<TARGET_OBJECTS:main>)
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTING)
+    include(CTest)
+    include(FetchContent)
+
     add_subdirectory(test)
+else()
+    add_subdirectory(app)
+    add_executable(${CMAKE_PROJECT_NAME} $<TARGET_OBJECTS:board> $<TARGET_OBJECTS:main>)
 endif()
