@@ -9,13 +9,13 @@ struct Portal {
 };
 
 struct Action {
-  enum class Type { Move, Win };
+  enum class Type { Stay, Move, Win };
   Type type;
   std::uint8_t target;
 
-  /*bool operator=(Action const rhs) const {
+  bool operator==(Action rhs) const {
     return std::tie(type, target) == std::tie(rhs.type, rhs.target);
-  }*/
+  }
 };
 
 class Board {

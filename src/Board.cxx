@@ -8,7 +8,7 @@ Action Board::landOn(uint8_t const square) const {
   if (it != portals.end()) {
     return {Action::Type::Move, it->second.target};
   }
-  return {Action::Type::Move, square};
+  return {Action::Type::Stay, square};
 }
 const std::map<std::uint8_t, Portal> Board::portals = {
     {2, {Portal::Type::Ladder, 38}},  {4, {Portal::Type::Ladder, 14}},
