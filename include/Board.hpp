@@ -20,6 +20,7 @@ struct Action {
 
 class Board {
 private:
+  static const int size = 100;
   static const std::map<std::uint8_t, Portal> portals;
 
 public:
